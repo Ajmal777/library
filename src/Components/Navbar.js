@@ -1,6 +1,16 @@
+import brand from '../Resources/brand-icon.svg'
+import favourites from '../Resources/favourites-icon.svg'
+import notification from '../Resources/notification-icon.svg'
+import premium from '../Resources/premium-icon.svg'
+import user from '../Resources/user-profile.svg'
+import { AiOutlineSearch } from "react-icons/ai";
+
 import React, { useState, useEffect , useContext } from "react";
 import axios from "axios";
 import BooksContext from '../Context/BooksContext';
+
+import '../Styles/navbar.css'
+
 
 const Navbar = () => {
     const [input, setInput] = useState("");
@@ -36,10 +46,13 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            <div className="brand"></div>
+            <div className="brand">
+              <img src={brand} alt="" />
+              <span id='brand-p1'>KeazoN<span id='brand-p2'>BOOKS</span></span>
+            </div>
             <div className="search">
                 <div className="searchbar">
-                    <span>O</span>
+                    <AiOutlineSearch />
                     <input
                         type="text"
                         id="searchBar"
@@ -47,13 +60,21 @@ const Navbar = () => {
                         onChange={(e) => setInput(e.target.value)}
                     />
                 </div>
-                <button onClick={searchBooks}>Search</button>
+                <button id='search-btn' onClick={searchBooks}>Search</button>
             </div>
             <div className="navLinks">
-                <div className="link"></div>
-                <div className="link"></div>
-                <div className="link"></div>
-                <div className="link"></div>
+                <div className="link">
+                  <img src={favourites} alt="" />
+                </div>
+                <div className="link">
+                  <img src={notification} alt="" />
+                </div>
+                <div className="link">
+                  <img src={premium} alt="" />
+                </div>
+                <div className="link">
+                  <img src={user} alt="" />
+                </div>
             </div>
         </div>
     );

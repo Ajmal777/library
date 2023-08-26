@@ -1,20 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
 body{
     background: black;
     color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background-color: #242121;
 }
 
 .booksList{
     display: grid;
+    padding: 0px 1rem;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-template-rows: minmax(200px, 1fr);
-    gap: 15px;
+    gap: 4rem;
+    padding-bottom: 2rem;
 }
 
 .book{
     width: 100%;
     height: auto;
+    scale: 1;
+    transition: 0.2s ease;
+}
+.book:hover{
+    scale: 1.1;
 }
 .book > img{
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+}
+button:hover{
+    cursor: pointer;
 }
