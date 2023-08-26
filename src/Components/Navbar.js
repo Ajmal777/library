@@ -33,16 +33,24 @@ const Navbar = () => {
     }, [])
 
 
-    async function searchBooks(){
-      try{
-        const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${input}`)
-        setBooksList(res.data.items);
+    function searchBooks(){
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${input}`)
+        .then(res => {
+          if(res.data.totalItems > 0){ 
+            setBooksList(res.data.items);
+            setError('');
+          }
+          else{
+            setError("No items found");
+            setBooksList([]);
+          }
+        })
+        .catch(error => {
+          setError(error.response.data.error.message);
+          setBooksList([]);
+          console.log(error);
+        })
       }
-      catch(error){
-        setError(error.response.data.error.message);
-        console.log(error);
-      }
-    }
 
     return (
         <div className="navbar">

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
 body{
-    background: black;
+    background-color: #242121;
     color: white;
     font-family: 'Roboto', sans-serif;
 }
@@ -9,7 +9,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    background-color: #242121;
+    
 }
 
 .booksList{

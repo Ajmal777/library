@@ -6,13 +6,14 @@ import BooksContext from './Context/BooksContext';
 import BookDetails from './Components/BookDetails';
 
 function App() {
-  const {activeBook} = useContext(BooksContext);
-
+  const {activeBook , error} = useContext(BooksContext);
+  console.log("Error: ", error);
   return (
     <div className="App">
       <Navbar />      
-      {activeBook && <BookDetails />}
-      <MoreBooks />
+      {!error && activeBook && <BookDetails />}
+      {!error && <MoreBooks />}
+      {error && <p style={{color: 'red', fontSize: '20px', textAlign: 'center'}}>{error}</p>}
     </div>
   );
 }

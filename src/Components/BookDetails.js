@@ -4,7 +4,7 @@ import '../Styles/bookDetails.css'
 const BookDetails = () => {
     const {activeBook} = useContext(BooksContext);
     return (
-        <div className="activeBook">
+        <div className="activeBook" id="bookDetails">
             <div className="book-img">
                 <img src={activeBook.volumeInfo.imageLinks.thumbnail} alt="" />
             </div>
